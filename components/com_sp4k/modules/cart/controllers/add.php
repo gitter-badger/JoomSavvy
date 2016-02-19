@@ -17,6 +17,7 @@
             $model = new Sp4kModulesCartModelsAdd(
                 new Registry( $formdata )
             );
+            var_dump($model);
 
             //$view = new Sp4kModulesRegistrationViewsCartJson($model);
             //echo $view->render();
