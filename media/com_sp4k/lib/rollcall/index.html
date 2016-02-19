@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html ng-app="sp4k" ng-controller="AppCtrl" class="fixed">
+    <head>
+        <title>Roll Call</title>
+
+        <!-- social media tags -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- font awesome from BootstrapCDN -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- compiled CSS -->
+        <link rel="stylesheet" type="text/css" href="/media/com_sp4k/lib/rollcall/vendor/angular-xeditable/dist/css/xeditable.css" />
+        <link rel="stylesheet" type="text/css" href="/media/com_sp4k/lib/rollcall/vendor/angular-material/angular-material.css" />
+        <link rel="stylesheet" type="text/css" href="/media/com_sp4k/lib/rollcall/vendor/angular-loading-bar/build/loading-bar.min.css" />
+        <link rel="stylesheet" type="text/css" href="/media/com_sp4k/lib/rollcall/vendor/jquery-sliding-menu/jquery-sliding-menu.css" />
+        <link rel="stylesheet" type="text/css" href="/media/com_sp4k/lib/rollcall/assets/ngbp-0.3.2.css" />
+
+        <!-- compiled JavaScript -->
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular/angular.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-xeditable/dist/js/xeditable.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-resource/angular-resource.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-animate/angular-animate.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-aria/angular-aria.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-material/angular-material.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-spinners/dist/angular-spinners.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/gm.datepickerMultiSelect/src/gm.datepickerMultiSelect.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/venturocket-angular-slider/build/angular-slider.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-touch/angular-touch.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/datetimeRangePicker/range-picker.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/lodash/lodash.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/moment/min/moment-with-locales.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/rrule/lib/rrule.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/rrule/lib/nlp.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/modernizr/modernizr.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/nanoscroller/nanoscroller.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.min.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/angularUtils-pagination/dirPagination.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/jquery-sliding-menu/jquery-sliding-menu.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/dashboard/theme.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/dashboard/theme.custom.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/dashboard/theme.admin.extension.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/vendor/dashboard/theme.init.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/accounts/accounts.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/accounts/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/accounts/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/app.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/catalog/catalog.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/catalog/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/categories/categories.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/categories/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/children/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/children/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/children/parents.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/coaches/coaches.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/coaches/item/coach.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/coaches/items/coaches.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/events/events.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/events/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/home/home.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/invoices/invoices.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/invoices/item/invoice.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/invoices/items/invoices.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/orders/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/orders/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/orders/orders.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/parents/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/parents/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/parents/parents.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/payments/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/payments/payments.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/products/item/event/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/products/item/event/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/products/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/products/items/products.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/products/products.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/registrations/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/registrations/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/registrations/regitsrations.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/reports/reports.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/rollcall/products/products.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/rollcall/rollcall.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/rollcall/roster/roster.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/subscriptions/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/subscriptions/items/items.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/subscriptions/subscriptions.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/transactions/item/transaction.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/transactions/items/transactions.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/transactions/transactions.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/users/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/users/users.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/venues/item/item.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/venues/items/venues.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/app/venues/venues.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/directives/selectrrule/rrule_recurring_select.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/filters.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/accounts.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/categories.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/children.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/coaches.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/events.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/invoices.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/orders.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/parents.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/payments.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/products.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/registrations.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/roster.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/subscriptions.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/transactions.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/users.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/resources/venues.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/autocomplete/children.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/autocomplete/mobilenumber.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/autocomplete/parents.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/modal/login/login.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/modal/select/select.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/routehistory.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/user/auth.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/src/common/services/user/session.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/templates-common.js"></script>
+        <script type="text/javascript" src="/media/com_sp4k/lib/rollcall/templates-app.js"></script>
+
+    </head>
+    <body style="overflow:hidden;">
+        <section class="body" style="height:100%" >
+
+        <!-- start: header -->
+            <header class="header">
+                <h2>Sports4Kids Roll Call</h2>
+            </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper" style="height:100%" >
+            <!-- start: sidebar -->
+
+            <!--
+            <aside id="sidebar-left" class="sidebar-left">
+
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Navigation
+                    </div>
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="home">
+                                        <i class="fa fa-home"></i>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="categories">
+                                        <i class="fa fa-categories"></i>
+                                        <span>Categories</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="products.items">
+                                        <i class="fa fa-products"></i>
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="venues.items">
+                                        <i class="fa fa-venues"></i>
+                                        <span>Venues</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href ui-sref="coaches.items">
+                                        <i class="fa fa-coaches"></i>
+                                        <span>Coaches</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="accounts.items">
+                                        <i class="fa fa-accounts"></i>
+                                        <span>Accounts</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="parents.items">
+                                        <i class="fa fa-parents"></i>
+                                        <span>Parents</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="children">
+                                        <i class="fa fa-children"></i>
+                                        <span>Children</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href ui-sref="orders.items">
+                                        <i class="fa fa-orders"></i>
+                                        <span>Orders</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="subscriptions.items">
+                                        <i class="fa fa-subscriptions"></i>
+                                        <span>Subscriptions</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="registrations.items">
+                                        <i class="fa fa-registrations"></i>
+                                        <span>Registrations</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="invoices.items">
+                                        <i class="fa fa-invoices"></i>
+                                        <span>Invoices</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="payments.items">
+                                        <i class="fa fa-payments"></i>
+                                        <span>Payments</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="transactions.items">
+                                        <i class="fa fa-transactions"></i>
+                                        <span>Transactions</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a href ui-sref="rollcall.products">
+                                        <i class="fa fa-rollcall"></i>
+                                        <span>Roll Call</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <hr class="separator" />
+
+                        <div class="sidebar-widget widget-tasks">
+                            <div class="widget-header">
+                                <h6>Projects</h6>
+                                <div class="widget-toggle">+</div>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="list-unstyled m-none">
+                                    <li><a href="#">Porto HTML5 Template</a></li>
+                                    <li><a href="#">Tucson Template</a></li>
+                                    <li><a href="#">Porto Admin</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="separator" />
+
+                        <div class="sidebar-widget widget-stats">
+                            <div class="widget-header">
+                                <h6>Company Stats</h6>
+                                <div class="widget-toggle">+</div>
+                            </div>
+                            <div class="widget-content">
+                                <ul>
+                                    <li>
+                                        <span class="stats-title">Stat 1</span>
+                                        <span class="stats-complete">85%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                                                <span class="sr-only">85% Complete</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="stats-title">Stat 2</span>
+                                        <span class="stats-complete">70%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                                                <span class="sr-only">70% Complete</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="stats-title">Stat 3</span>
+                                        <span class="stats-complete">2%</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                                                <span class="sr-only">2% Complete</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </aside>
+            -->
+            <section role="main" class="content-body" style="height:100%" >
+
+
+                <!-- start: page -->
+                <div class="row layout-column" ui-view="main" style="height:100%" ></div>
+                <!-- end: page -->
+            </section>
+        </div>
+
+    </section>
+        <script>
+            jQuery(document).ready(function(){
+              jQuery('.navbar-btn').on('click',function(){
+                  $("#wrapper").toggleClass("oc_open");
+              });
+            });
+        </script>
+    </body>
+</html>
